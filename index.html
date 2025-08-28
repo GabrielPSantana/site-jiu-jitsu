@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dojo Kaze — Academia de Jiu-Jitsu em Alagoinhas-BA</title>
+  <meta name="description" content="Treinos de Jiu-Jitsu para crianças, jovens e adultos. Aulas com mestres credenciados, turmas iniciantes e avançadas. Experimente uma aula grátis no Dojo Kaze!" />
+  <link rel="canonical" href="https://www.seu-dominio.com.br/" />
+  <meta name="theme-color" content="#0ea5e9" />
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Dojo Kaze — Academia de Jiu-Jitsu em Alagoinhas-BA" />
+  <meta property="og:description" content="Aulas de Jiu-Jitsu com foco em disciplina, saúde e autoconfiança. Agende uma aula experimental grátis." />
+  <meta property="og:url" content="https://www.seu-dominio.com.br/" />
+  <meta property="og:image" content="https://www.seu-dominio.com.br/og-cover.jpg" />
+  
+  <!-- JSON-LD: LocalBusiness / SportsActivityLocation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Dojo Kaze",
+    "sport": "Karate",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Alagoinhas-BA",
+      "addressRegion": "[UF]",
+      "postalCode": "00000-000",
+      "addressCountry": "BR"
+    },
+    "geo": {"@type":"GeoCoordinates","latitude": -12.9718, "longitude": -38.5011},
+    "telephone": "+55 71 99999-9999",
+    "openingHours": [
+      "Mo-Fr 06:00-22:00",
+      "Sa 08:00-14:00"
+    ],
+    "url": "https://www.seu-dominio.com.br",
+    "image": ["https://www.seu-dominio.com.br/og-cover.jpg"],
+    "priceRange": "R$"
+  }
+  </script>
+
+  <style>
+    /* ======= Design Tokens ======= */
+    :root {
+      --bg: #0b1220;
+      --card: #101827;
+      --brand: #e90e0e; /* sky-500 */
+      --brand-600: #c70202;
+      --accent: #22c55e; /* green */
+      --text: #e5e7eb; /* zinc-200 */
+      --muted: #94a3b8; /* slate-400 */
+      --danger: #ef4444;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --maxw: 1200px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f8fafc; --card: #ffffff; --text: #0f172a; --muted: #475569; }
+      header.nav { background: rgba(255,255,255,.8); backdrop-filter: saturate(180%) blur(10px);}
+    }
+
+    /* ======= Reset + Base ======= */
+    * { box-sizing: border-box; }
+    html:focus-within { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } * { animation: none!important; transition: none!important; } }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); line-height: 1.6; }
+    img { max-width: 100%; display: block; border-radius: calc(var(--radius) - 4px); }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--maxw); margin-inline: auto; padding: 0 1rem; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; background: var(--brand); color:#001018; padding:.875rem 1.1rem; border-radius: calc(var(--radius) - 6px); font-weight:600; box-shadow: var(--shadow); border:1px solid rgba(255,255,255,.06);}
+    .btn:hover { background: var(--brand-600); text-decoration:none; }
+    .btn.outline { background: transparent; border:1px solid var(--brand); color: var(--text); box-shadow:none; }
+    .chip { padding:.25rem .6rem; border-radius: 999px; font-size:.8rem; background: rgba(14,165,233,.15); color: var(--brand); border:1px solid rgba(14,165,233,.3)}
+    .grid { display:grid; gap: 1.25rem; }
+    .section { padding: 4rem 0; }
+    .card { background: var(--card); border:1px solid rgba(255,255,255,.06); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.2rem; }
+    .eyebrow { letter-spacing: .18em; text-transform: uppercase; font-size:.8rem; color: var(--muted); }
+    h1,h2,h3 { line-height: 1.2; }
+    h1 { font-size: clamp(1.8rem, 3vw + 1rem, 3rem); margin: .2rem 0 1rem; }
+    h2 { font-size: clamp(1.4rem, 2vw + .6rem, 2rem); margin: 0 0 1rem; }
+
+    /* ======= Skip link ======= */
+    .skip-link { position:absolute; left:-1000px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left: 1rem; top: 1rem; width:auto; height:auto; padding:.5rem 1rem; background: #fff; color:#000; border-radius: .5rem; z-index: 9999;}
+
+    /* ======= Nav ======= */
+    header.nav { position:sticky; top:0; z-index:999; background: rgba(16,24,39,.8); backdrop-filter: saturate(180%) blur(10px); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.6rem 0; }
+    .brand { display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.02em; }
+    .brand .logo { width:36px; height:36px; border-radius: 10px; display:grid; place-items:center; background: linear-gradient(135deg, var(--brand), #38bdf8); color:#001018; font-weight:900; }
+    nav ul { list-style:none; display:flex; gap:.8rem; padding:0; margin:0; }
+    nav a { padding:.6rem .8rem; border-radius: .6rem; display:inline-block; color: var(--text); }
+    nav a:hover, nav a[aria-current="page"] { background: rgba(255,255,255,.06); text-decoration:none; }
+
+    .menu-toggle { display:none; background:none; border:1px solid rgba(255,255,255,.2); border-radius:.6rem; padding:.5rem .7rem; color: var(--text); }
+
+    @media (max-width: 880px) {
+      nav ul { display:none; position:absolute; right:1rem; top:64px; flex-direction:column; background: var(--card); padding:.6rem; border:1px solid rgba(255,255,255,.06); border-radius: .8rem; width:min(92vw, 420px); }
+      nav ul.open { display:flex; }
+      .menu-toggle { display:inline-flex; }
+    }
+
+    /* ======= Hero ======= */
+    .hero { padding: 5rem 0 3rem; }
+    .hero-wrap { display:grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items:center; }
+    .hero .badges { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:.6rem; }
+    .hero p { color: var(--muted); font-size:1.05rem; }
+    .hero-cta { display:flex; gap:.8rem; margin-top:1.2rem; flex-wrap:wrap; }
+    .hero .media { position:relative; }
+    .hero .media img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+    .hero .media .stamp { position:absolute; right:-8px; bottom:-8px; background: #fff; color:#0b1220; padding:.6rem .8rem; border-radius:.8rem; font-weight:700; transform: rotate(-3deg); }
+
+    @media (max-width: 880px) { .hero-wrap { grid-template-columns: 1fr; } }
+
+    /* ======= Highlights ======= */
+    .highlights { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 880px) { .highlights { grid-template-columns: 1fr; } }
+
+    /* ======= Schedule ======= */
+    .schedule { grid-template-columns: 1.1fr .9fr; }
+    @media (max-width: 980px) { .schedule { grid-template-columns: 1fr; } }
+    .table { width:100%; border-collapse: collapse; overflow:hidden; border-radius: var(--radius); }
+    .table th, .table td { padding:.9rem .8rem; border-bottom:1px solid rgba(255,255,255,.06); text-align:left; }
+    .table th { background: rgba(14,165,233,.08); color: var(--text); font-weight:700; }
+
+    /* ======= Plans ======= */
+    .plans { grid-template-columns: repeat(3, 1fr); }
+    .price { font-size: 2rem; font-weight:800; }
+    .features { display:grid; gap:.4rem; margin:.8rem 0; }
+    .features li { display:flex; align-items:center; gap:.5rem; }
+    @media (max-width: 980px) { .plans { grid-template-columns: 1fr; } }
+
+    /* ======= Team ======= */
+    .team { grid-template-columns: repeat(3, 1fr); }
+    .coach img { aspect-ratio: 4/3; object-fit: fill; }
+    .coach small { color: var(--muted); }
+    @media (max-width: 980px) { .team { grid-template-columns: 1fr; } }
+
+    /* ======= Testimonials ======= */
+    .testimonials { grid-auto-flow: column; grid-auto-columns: minmax(260px, 1fr); overflow-x:auto; padding-bottom: .4rem; }
+    .testimonials .card { min-height: 190px; }
+    .testimonials::-webkit-scrollbar { height: 10px; }
+    .testimonials::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 999px; }
+
+    /* ======= Contact ======= */
+    form { display:grid; gap:.8rem; }
+    label { font-weight: 600; }
+    input, select, textarea { width:100%; padding:.8rem; background:#0f172a; color: var(--text); border:1px solid rgba(255,255,255,.12); border-radius:.6rem; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--brand); outline-offset: 2px; border-color: transparent; }
+    .form-row { display:grid; gap:.8rem; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 720px) { .form-row { grid-template-columns: 1fr; } }
+
+    /* ======= Footer ======= */
+    footer { background: #0a0f1a; border-top:1px solid rgba(255,255,255,.06); padding: 2rem 0; color: var(--muted); }
+    .footer-grid { display:grid; gap:1rem; grid-template-columns: 1.2fr .8fr .8fr; }
+    @media (max-width: 980px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* Utility */
+    .mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}
+    .mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}
+    .center { text-align:center; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Ir para o início">
+        <span class="logo" aria-hidden="true">空手</span>
+        <span>Dojo Kaze</span>
+      </a>
+      <nav aria-label="Principal">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+        <ul id="menu-principal">
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#horarios">Horários</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a class="chip" href="#agendar">Aula grátis</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section id="home" class="hero section">
+      <div class="container hero-wrap">
+        <div>
+          <div class="badges">
+            <span class="chip" aria-label="Equipe credenciada">Equipe credenciada</span>
+            <span class="chip" aria-label="Turmas para todas as idades">Todas as idades</span>
+            <span class="chip" aria-label="Aula experimental grátis">Aula grátis</span>
+          </div>
+          <h1>Força, Disciplina e Respeito — <br/>Jiu-Jitsu para todas as idades</h1>
+          <p>Desenvolva corpo e mente com treinos de Jiu-Jitsu estruturados, do iniciante ao avançado. Venha conhecer o Dojo Kaze e ganhe <strong>uma aula experimental gratuita</strong>.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#agendar" aria-label="Agendar aula grátis">Agendar Aula Grátis</a>
+            <a class="btn outline" href="#planos" aria-label="Ver planos">Ver Planos</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true">
+          <img loading="lazy" src="banner-j.webp" alt="Alunos praticando Jiu-Jitsu no dojo" />
+          <span class="stamp">Matrículas abertas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="section">
+      <div class="container grid highlights">
+        <article class="card">
+          <h3>Metodologia progressiva</h3>
+          <p class="mt-2">Aulas planejadas por faixas etárias e níveis — foco em técnica, condicionamento e valores do Jiu-Jitsu.</p>
+        </article>
+        <article class="card">
+          <h3>Segurança e acolhimento</h3>
+          <p class="mt-2">Ambiente seguro, com acompanhamento próximo e turmas reduzidas para melhor aprendizado.</p>
+        </article>
+        <article class="card">
+          <h3>Resultados reais</h3>
+          <p class="mt-2">Evolução mensurável de condicionamento físico, disciplina e autoconfiança em poucas semanas.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="horarios" class="section">
+      <div class="container grid schedule">
+        <div>
+          <p class="eyebrow">Agenda</p>
+          <h2>Horários das turmas</h2>
+          <p class="mt-2">Escolha o melhor horário para você ou seu filho. Também temos treinos personalizados e preparação para competições.</p>
+          <table class="table mt-4" aria-label="Tabela de horários">
+            <thead>
+              <tr><th>Dia</th><th>Infantil</th><th>Juvenil</th><th>Adulto</th><th>Avançado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Segunda</td><td>18:00</td><td>19:00</td><td>20:00</td><td>21:00</td></tr>
+              <tr><td>Quarta</td><td>18:00</td><td>19:00</td><td>20:00</td><td>21:00</td></tr>
+              <tr><td>Sexta</td><td>18:00</td><td>19:00</td><td>20:00</td><td>—</td></tr>
+              <tr><td>Sábado</td><td>10:00</td><td>—</td><td>11:00</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="card" aria-label="Chamada para aula grátis">
+          <h3>Agende sua aula gratuita</h3>
+          <p class="mt-2">Sem compromisso. Traga roupa confortável e boa energia!</p>
+          <a class="btn mt-4" href="#agendar">Agendar agora</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section id="planos" class="section">
+      <div class="container">
+        <p class="eyebrow">Planos</p>
+        <h2>Escolha seu plano</h2>
+        <div class="grid plans mt-4">
+          <article class="card" aria-label="Plano Iniciante">
+            <h3>Iniciante</h3>
+            <p class="muted">2x por semana</p>
+            <p class="price mt-2">R$ 149<span style="font-size:.9rem">/mês</span></p>
+            <ul class="features">
+              <li>✔ Aula experimental grátis</li>
+              <li>✔ Acesso a turmas básicos</li>
+              <li>✔ Avaliação física inicial</li>
+            </ul>
+            <a class="btn" href="#agendar">Começar</a>
+          </article>
+
+          <article class="card" aria-label="Plano Intermediário">
+            <h3>Intermediário</h3>
+            <p class="muted">3x por semana</p>
+            <p class="price mt-2">R$ 199<span style="font-size:.9rem">/mês</span></p>
+            <ul class="features">
+              <li>✔ Tudo do Iniciante</li>
+              <li>✔ Acesso a turmas intermediárias</li>
+              <li>✔ Workshop mensal</li>
+            </ul>
+            <a class="btn" href="#agendar">Assinar</a>
+          </article>
+
+          <article class="card" aria-label="Plano Avançado">
+            <h3>Avançado</h3>
+            <p class="muted">Acesso total</p>
+            <p class="price mt-2">R$ 259<span style="font-size:.9rem">/mês</span></p>
+            <ul class="features">
+              <li>✔ Acesso a todas as turmas</li>
+              <li>✔ Preparação para exames de faixa</li>
+              <li>✔ Descontos em eventos</li>
+            </ul>
+            <a class="btn" href="#agendar">Matricular</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="equipe" class="section">
+      <div class="container">
+        <p class="eyebrow">Instrutores</p>
+        <h2>Nosso time</h2>
+        <div class="grid team mt-4">
+          <article class="card coach">
+            <img loading="lazy" src="4.jpg" alt="Sensei João aplicando técnica de Jiu-Jitsu" />
+            <h3 class="mt-2">Sensei João Silva</h3>
+            <small>Faixa preta 4º Dan — 15 anos de experiência</small>
+          </article>
+          <article class="card coach">
+            <img loading="lazy" src="4.avif" alt="Sensei Maria orientando aluna" />
+            <h3 class="mt-2">Sensei Maria Souza</h3>
+            <small>Faixa preta 3º Dan — Especialista em didática infantil</small>
+          </article>
+          <article class="card coach">
+            <img loading="lazy" src="5.png" alt="Instrutor Paulo em posição de kata" />
+            <h3 class="mt-2">Instrutor Paulo</h3>
+            <small>Faixa marrom — Preparação física</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Depoimentos</p>
+        <h2>O que nossos alunos dizem</h2>
+        <div class="grid testimonials mt-4" aria-label="Depoimentos em carrossel rolável horizontalmente">
+          <blockquote class="card">“Ambiente incrível! Meu filho ganhou muita disciplina em pouco tempo.” <footer class="mt-2">— Ana P.</footer></blockquote>
+          <blockquote class="card">“Aula puxada e técnica. Melhorei condicionamento e foco para o trabalho.” <footer class="mt-2">— Carlos M.</footer></blockquote>
+          <blockquote class="card">“Equipe muito atenciosa e didática. Recomendo a todos.” <footer class="mt-2">— Júlia R.</footer></blockquote>
+          <blockquote class="card">“Passei no exame de faixa com confiança graças aos treinos.” <footer class="mt-2">— Diego K.</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contato" class="section">
+      <div class="container grid schedule">
+        <div>
+          <p class="eyebrow">Contato</p>
+          <h2>Fale com a gente</h2>
+          <form class="mt-4" id="form-contato" novalidate>
+            <div class="form-row">
+              <div>
+                <label for="nome">Nome</label>
+                <input id="nome" name="nome" type="text" placeholder="Seu nome completo" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
+              </div>
+              <div>
+                <label for="interesse">Interesse</label>
+                <select id="interesse" name="interesse" required>
+                  <option value="" disabled selected>Selecione…</option>
+                  <option value="infantil">Turma infantil</option>
+                  <option value="juvenil">Turma juvenil</option>
+                  <option value="adulto">Turma adulto</option>
+                  <option value="competicao">Competição</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte como podemos ajudar"></textarea>
+            </div>
+            <button class="btn" type="submit">Enviar</button>
+            <p class="mt-2" id="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <aside class="card" id="agendar">
+          <h3>Endereço & horário</h3>
+          <p class="mt-2">Rua Exemplo, 123 — [Bairro], [Cidade/UF]</p>
+          <p class="mt-2">Seg a Sex: 06h–22h · Sáb: 08h–14h</p>
+          <a class="btn mt-4" href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20gr%C3%A1tis%20no%20Dojo%20Kaze." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          <div class="mt-4" aria-hidden="true">
+            <iframe title="Mapa do Dojo Kaze" style="border:0;width:100%;height:260px;border-radius:12px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.138809715627!2d-38.5011!3d-12.9718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3ADojoKaze!2sDojo%20Kaze!5e0!3m2!1spt-BR!2sBR!4v1680000000000"></iframe>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Dojo Kaze</strong>
+        <p class="mt-2">Jiu-Jitsu para todas as idades com foco em respeito, disciplina e saúde. A primeira aula é por nossa conta.</p>
+      </div>
+      <div>
+        <p><strong>Contato</strong></p>
+        <p class="mt-2">Tel/Whats: (71) 99999-9999<br/>Email: contato@seu-dominio.com.br</p>
+      </div>
+      <div>
+        <p><strong>Redes</strong></p>
+        <p class="mt-2"><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">YouTube</a></p>
+      </div>
+    </div>
+    <div class="container mt-4" style="font-size:.85rem">© <span id="year"></span> Dojo Kaze — Todos os direitos reservados · <a href="#" rel="nofollow">Política de privacidade</a></div>
+  </footer>
+
+  <script>
+    // ======= A11y: navegação e menu mobile =======
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu-principal');
+    toggle?.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Marcar link ativo conforme seção visível (melhora UX + SEO de navegação interna)
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector(`nav a[href="#${id}"]`);
+        if(link){ link.setAttribute('aria-current', entry.isIntersecting ? 'page' : 'false'); }
+      });
+    },{threshold:.6});
+    document.querySelectorAll('main section[id]').forEach(sec=>observer.observe(sec));
+
+    // ======= Form: validação simples e analytics leve =======
+    const form = document.getElementById('form-contato');
+    const feedback = document.getElementById('form-feedback');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      if(!form.checkValidity()){
+        feedback.textContent = 'Por favor, preencha os campos obrigatórios.';
+        feedback.style.color = 'var(--danger)';
+        return;
+      }
+      const data = Object.fromEntries(new FormData(form).entries());
+      // Simula envio — substitua por fetch('/api/contato', { method:'POST', body: JSON.stringify(data) ... })
+      localStorage.setItem('lead-dojo', JSON.stringify({...data, ts: Date.now()}));
+      form.reset();
+      feedback.textContent = 'Mensagem enviada! Em breve entraremos em contato.';
+      feedback.style.color = 'var(--accent)';
+    });
+
+    // Ano do rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Respeitar prefers-reduced-motion em rolagem programática
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReducedMotion){ document.documentElement.style.scrollBehavior = 'auto'; }
+  </script>
+</body>
+</html>
